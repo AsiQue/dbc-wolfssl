@@ -38,23 +38,23 @@ ifeq ($(MAKECMDGOALS),dbc_wolfssl_Debug)
 
 dbc_wolfssl_Debug : ./Debug/dbc_wolfssl.dxe 
 
-Debug/dbc_wolfssl.doj :dbc_wolfssl.c wolfssl/wolfcrypt/sha256.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h 
+./Debug/dbc_wolfssl.doj :dbc_wolfssl.c wolfssl/wolfcrypt/sha256.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h 
 	@echo ".\dbc_wolfssl.c"
 	$(VDSP)/cc21k.exe -c .\dbc_wolfssl.c -file-attr ProjectName=dbc_wolfssl -g -structs-do-not-overlap -no-multiline -D NO_MD5 -D NO_SHA -D NO_MD5 -D NO_MD4 -D WOLFCRYPT_ONLY -D SINGLE_THREADED -D NO_FILESYSTEM -D NO_WOLFSSL_MEMORY -D WOLFSSL_HAVE_MIN -D WOLFSSL_HAVE_MAX -double-size-32 -warn-protos -proc ADSP-21060 -o .\Debug\dbc_wolfssl.doj -MM
 
-Debug/error.doj :wolfcrypt/src/error.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/error-crypt.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h 
+./Debug/error.doj :wolfcrypt/src/error.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/error-crypt.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h 
 	@echo ".\wolfcrypt\src\error.c"
 	$(VDSP)/cc21k.exe -c .\wolfcrypt\src\error.c -file-attr ProjectName=dbc_wolfssl -g -structs-do-not-overlap -no-multiline -D NO_MD5 -D NO_SHA -D NO_MD5 -D NO_MD4 -D WOLFCRYPT_ONLY -D SINGLE_THREADED -D NO_FILESYSTEM -D NO_WOLFSSL_MEMORY -D WOLFSSL_HAVE_MIN -D WOLFSSL_HAVE_MAX -double-size-32 -warn-protos -proc ADSP-21060 -o .\Debug\error.doj -MM
 
-Debug/logging.doj :wolfcrypt/src/logging.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/logging.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h wolfssl/wolfcrypt/error-crypt.h 
+./Debug/logging.doj :wolfcrypt/src/logging.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/logging.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h wolfssl/wolfcrypt/error-crypt.h 
 	@echo ".\wolfcrypt\src\logging.c"
 	$(VDSP)/cc21k.exe -c .\wolfcrypt\src\logging.c -file-attr ProjectName=dbc_wolfssl -g -structs-do-not-overlap -no-multiline -D NO_MD5 -D NO_SHA -D NO_MD5 -D NO_MD4 -D WOLFCRYPT_ONLY -D SINGLE_THREADED -D NO_FILESYSTEM -D NO_WOLFSSL_MEMORY -D WOLFSSL_HAVE_MIN -D WOLFSSL_HAVE_MAX -double-size-32 -warn-protos -proc ADSP-21060 -o .\Debug\logging.doj -MM
 
-Debug/misc.doj :wolfcrypt/src/misc.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/misc.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h 
+./Debug/misc.doj :wolfcrypt/src/misc.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/misc.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h 
 	@echo ".\wolfcrypt\src\misc.c"
 	$(VDSP)/cc21k.exe -c .\wolfcrypt\src\misc.c -file-attr ProjectName=dbc_wolfssl -g -structs-do-not-overlap -no-multiline -D NO_MD5 -D NO_SHA -D NO_MD5 -D NO_MD4 -D WOLFCRYPT_ONLY -D SINGLE_THREADED -D NO_FILESYSTEM -D NO_WOLFSSL_MEMORY -D WOLFSSL_HAVE_MIN -D WOLFSSL_HAVE_MAX -double-size-32 -warn-protos -proc ADSP-21060 -o .\Debug\misc.doj -MM
 
-Debug/sha256.doj :wolfcrypt/src/sha256.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/sha256.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h wolfssl/wolfcrypt/error-crypt.h wolfssl/wolfcrypt/cpuid.h wolfssl/wolfcrypt/hash.h wolfssl/wolfcrypt/logging.h wolfcrypt/src/misc.c wolfssl/wolfcrypt/misc.h 
+./Debug/sha256.doj :wolfcrypt/src/sha256.c wolfssl/wolfcrypt/settings.h wolfssl/wolfcrypt/visibility.h wolfssl/wolfcrypt/sha256.h wolfssl/wolfcrypt/types.h wolfssl/wolfcrypt/wc_port.h $(VDSP)/21k/include/time.h $(VDSP)/21k/include/yvals.h $(VDSP)/21k/include/xcycle_count.h $(VDSP)/21k/include/limits.h $(VDSP)/21k/include/cycle_count_21xxx.h $(VDSP)/21k/include/stdlib.h $(VDSP)/21k/include/string.h $(VDSP)/21k/include/ctype.h wolfssl/wolfcrypt/error-crypt.h wolfssl/wolfcrypt/cpuid.h wolfssl/wolfcrypt/hash.h wolfssl/wolfcrypt/logging.h wolfcrypt/src/misc.c wolfssl/wolfcrypt/misc.h 
 	@echo ".\wolfcrypt\src\sha256.c"
 	$(VDSP)/cc21k.exe -c .\wolfcrypt\src\sha256.c -file-attr ProjectName=dbc_wolfssl -g -structs-do-not-overlap -no-multiline -D NO_MD5 -D NO_SHA -D NO_MD5 -D NO_MD4 -D WOLFCRYPT_ONLY -D SINGLE_THREADED -D NO_FILESYSTEM -D NO_WOLFSSL_MEMORY -D WOLFSSL_HAVE_MIN -D WOLFSSL_HAVE_MAX -double-size-32 -warn-protos -proc ADSP-21060 -o .\Debug\sha256.doj -MM
 
@@ -67,11 +67,11 @@ endif
 ifeq ($(MAKECMDGOALS),dbc_wolfssl_Debug_clean)
 
 dbc_wolfssl_Debug_clean:
-	-$(RM) "Debug\dbc_wolfssl.doj"
-	-$(RM) "Debug\error.doj"
-	-$(RM) "Debug\logging.doj"
-	-$(RM) "Debug\misc.doj"
-	-$(RM) "Debug\sha256.doj"
+	-$(RM) ".\Debug\dbc_wolfssl.doj"
+	-$(RM) ".\Debug\error.doj"
+	-$(RM) ".\Debug\logging.doj"
+	-$(RM) ".\Debug\misc.doj"
+	-$(RM) ".\Debug\sha256.doj"
 	-$(RM) ".\Debug\dbc_wolfssl.dxe"
 	-$(RM) ".\Debug\*.ipa"
 	-$(RM) ".\Debug\*.opa"

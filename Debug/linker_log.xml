@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.1.2/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Mon Apr 01 11:13:12 2019
+<DOCUMENT gen_time='Mon Apr 01 13:52:13 2019
 '>
-<MSG id='0290A0B0' mid='li3201' type='Informational' suppressed=''>
+<MSG id='02C119B8' mid='li3201' type='Informational' suppressed=''>
 <TEXT><![CDATA[Successfully eliminated 30884 bytes in processor 'p0'
 ]]></TEXT>
 <EXTENDED_INFO><![CDATA[Eliminated object (.sopenin.0, .sopenin.0.end) of size 140 bytes from '.\Debug\error.doj(seg_dmda)'
