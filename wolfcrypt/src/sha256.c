@@ -686,7 +686,7 @@ static int InitSha256(wc_Sha256* sha256)
     static WC_INLINE int Sha256Update(wc_Sha256* sha256, const byte* data, word32 len)
     {
         int ret = 0;
-        byte* local;
+        byte local[WC_SHA256_BLOCK_SIZE];
 
         if (sha256 == NULL || (data == NULL && len > 0)) {
             return BAD_FUNC_ARG;
@@ -700,7 +700,7 @@ static int InitSha256(wc_Sha256* sha256)
         AddLength(sha256, len);
 
         /* do block size increments */
-        local = (byte*)sha256->buffer;
+		DBC_Word32ToByteArray(local, sha256->buffer, WC_SHA256_BLOCK_SIZE);
 
         /* check that internal buffLen is valid */
         if (sha256->buffLen >= WC_SHA256_BLOCK_SIZE)
@@ -782,12 +782,14 @@ static int InitSha256(wc_Sha256* sha256)
         {
             while (len >= WC_SHA256_BLOCK_SIZE) {
                 XMEMCPY(local, data, WC_SHA256_BLOCK_SIZE);
+                DBC_ByteToWord32Array(sha256->buffer, local, WC_SHA256_BLOCK_SIZE);
 
                 data += WC_SHA256_BLOCK_SIZE;
                 len  -= WC_SHA256_BLOCK_SIZE;
 
                 ByteReverseWords(sha256->buffer, sha256->buffer,
                                                           WC_SHA256_BLOCK_SIZE);
+				DBC_Word32ToByteArray(local, sha256->buffer, WC_SHA256_BLOCK_SIZE);
      #if !defined(WOLFSSL_ESP32WROOM32_CRYPT) || \
           defined(NO_WOLFSSL_ESP32WROOM32_CRYPT_HASH)
                 ret = XTRANSFORM(sha256);
@@ -811,6 +813,7 @@ static int InitSha256(wc_Sha256* sha256)
         if (len > 0) {
             XMEMCPY(local, data, len);
             sha256->buffLen = len;
+            DBC_ByteToWord32Array(sha256->buffer, local, WC_SHA256_BLOCK_SIZE);
         }
 
         return ret;
@@ -850,7 +853,8 @@ static int InitSha256(wc_Sha256* sha256)
     {
 
         int ret;
-        byte* local = (byte*)sha256->buffer;
+        byte local[WC_SHA256_BLOCK_SIZE];
+        DBC_Word32ToByteArray(local, sha256->buffer, WC_SHA256_BLOCK_SIZE);
 
         if (sha256 == NULL) {
             return BAD_FUNC_ARG;
@@ -862,6 +866,7 @@ static int InitSha256(wc_Sha256* sha256)
         if (sha256->buffLen > WC_SHA256_PAD_SIZE) {
             XMEMSET(&local[sha256->buffLen], 0,
                 WC_SHA256_BLOCK_SIZE - sha256->buffLen);
+            DBC_ByteToWord32Array(sha256->buffer, local, WC_SHA256_BLOCK_SIZE);
             sha256->buffLen += WC_SHA256_BLOCK_SIZE - sha256->buffLen;
 
             {
@@ -872,6 +877,7 @@ static int InitSha256(wc_Sha256* sha256)
                 {
                     ByteReverseWords(sha256->buffer, sha256->buffer,
                                                           WC_SHA256_BLOCK_SIZE);
+					DBC_Word32ToByteArray(local, sha256->buffer, WC_SHA256_BLOCK_SIZE);
                 }
         #endif
             }
@@ -894,9 +900,10 @@ static int InitSha256(wc_Sha256* sha256)
             sha256->buffLen = 0;
         }
         XMEMSET(&local[sha256->buffLen], 0, WC_SHA256_PAD_SIZE - sha256->buffLen);
-
+        DBC_ByteToWord32Array(sha256->buffer, local, WC_SHA256_BLOCK_SIZE);
+            
         /* put lengths in bits */
-        sha256->hiLen = (sha256->loLen >> (8 * sizeof(sha256->loLen) - 3)) +
+        sha256->hiLen = (sha256->loLen >> (8 * DBC_SIZEOF_WORD32 - 3)) +
                                                          (sha256->hiLen << 3);
         sha256->loLen = sha256->loLen << 3;
 
@@ -908,12 +915,13 @@ static int InitSha256(wc_Sha256* sha256)
             {
                 ByteReverseWords(sha256->buffer, sha256->buffer,
                     WC_SHA256_BLOCK_SIZE);
+                DBC_Word32ToByteArray(local, sha256->buffer, WC_SHA256_BLOCK_SIZE);
             }
     #endif
         /* ! length ordering dependent on digest endian type ! */
-        XMEMCPY(&local[WC_SHA256_PAD_SIZE], &sha256->hiLen, sizeof(word32));
-        XMEMCPY(&local[WC_SHA256_PAD_SIZE + sizeof(word32)], &sha256->loLen,
-                sizeof(word32));
+        DBC_Word32ToByteArray(&local[WC_SHA256_PAD_SIZE], &sha256->hiLen, DBC_SIZEOF_WORD32);//XMEMCPY(&local[WC_SHA256_PAD_SIZE], &sha256->hiLen, sizeof(word32));
+        DBC_Word32ToByteArray(&local[WC_SHA256_PAD_SIZE + DBC_SIZEOF_WORD32], &sha256->loLen, DBC_SIZEOF_WORD32);//XMEMCPY(&local[WC_SHA256_PAD_SIZE + sizeof(word32)], &sha256->loLen, sizeof(word32));
+        DBC_ByteToWord32Array(sha256->buffer, local, WC_SHA256_BLOCK_SIZE);
 
     #if defined(FREESCALE_MMCAU_SHA) || defined(HAVE_INTEL_AVX1) || \
         defined(HAVE_INTEL_AVX2)
@@ -999,7 +1007,7 @@ static int InitSha256(wc_Sha256* sha256)
     #if defined(LITTLE_ENDIAN_ORDER)
         ByteReverseWords(sha256->digest, sha256->digest, WC_SHA256_DIGEST_SIZE);
     #endif
-        XMEMCPY(hash, sha256->digest, WC_SHA256_DIGEST_SIZE);
+        DBC_Word32ToByteArray(hash, sha256->digest, WC_SHA256_DIGEST_SIZE);//XMEMCPY(hash, sha256->digest, WC_SHA256_DIGEST_SIZE);
 
         return InitSha256(sha256);  /* reset state */
     }

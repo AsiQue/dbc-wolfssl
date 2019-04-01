@@ -7,12 +7,17 @@
 int main()
 {
 
+	#define LEN 1000
+
 	wc_Sha256 sha_ctx;
-	unsigned char data[1] = { 0 };
+	unsigned char data[LEN] = { 0 };
 	unsigned char hash[32];
+	int i;
+	for (i = 0; i < LEN; i++)
+		data[i] = i & 0xFF;
 
 	wc_InitSha256(&sha_ctx);
-	wc_Sha256Update(&sha_ctx, data, 1);
+	wc_Sha256Update(&sha_ctx, data, LEN);
 	wc_Sha256Final(&sha_ctx, hash);
 
     return 0;

@@ -196,6 +196,8 @@
     #include "user_settings.h"
 #endif
 
+#define DBC_SIZEOF_WORD32 (4)
+
 
 /* make sure old RNG name is used with CTaoCrypt FIPS */
 #ifdef HAVE_FIPS

@@ -129,8 +129,8 @@ typedef struct wc_Sha256 {
     STM32_HASH_Context stmCtx;
 #else
     /* alignment on digest and buffer speeds up ARMv8 crypto operations */
-    ALIGN16 word32  digest[WC_SHA256_DIGEST_SIZE / sizeof(word32)];
-    ALIGN16 word32  buffer[WC_SHA256_BLOCK_SIZE  / sizeof(word32)];
+    ALIGN16 word32  digest[WC_SHA256_DIGEST_SIZE / DBC_SIZEOF_WORD32];
+    ALIGN16 word32  buffer[WC_SHA256_BLOCK_SIZE  / DBC_SIZEOF_WORD32];
     word32  buffLen;   /* in bytes          */
     word32  loLen;     /* length in bytes   */
     word32  hiLen;     /* length in bytes   */

@@ -80,13 +80,13 @@
 
     STATIC WC_INLINE word32 rotlFixed(word32 x, word32 y)
     {
-        return (x << y) | (x >> (sizeof(y) * 8 - y));
+        return (x << y) | (x >> (DBC_SIZEOF_WORD32 * 8 - y));
     }
 
 
     STATIC WC_INLINE word32 rotrFixed(word32 x, word32 y)
     {
-        return (x >> y) | (x << (sizeof(y) * 8 - y));
+        return (x >> y) | (x << (DBC_SIZEOF_WORD32 * 8 - y));
     }
 
 #endif
@@ -115,15 +115,36 @@ STATIC WC_INLINE word32 ByteReverseWord32(word32 value)
 #endif
 }
 
-
 STATIC WC_INLINE void ByteReverseWords(word32* out, const word32* in,
                                     word32 byteCount)
 {
-    word32 count = byteCount/(word32)sizeof(word32), i;
+    word32 count = byteCount/(word32)DBC_SIZEOF_WORD32, i;
 
     for (i = 0; i < count; i++)
         out[i] = ByteReverseWord32(in[i]);
 
+}
+
+STATIC WC_INLINE void DBC_Word32ToByteArray(byte* out, const word32* in,
+                                    		word32 byteCount)
+{
+    word32 i;
+
+	for(i = 0; i < byteCount; i++) {
+    	out[i] = (in[i / 4] >> (8*(i % 4))) & 0xFF;
+	}
+}
+
+STATIC WC_INLINE void DBC_ByteToWord32Array(word32* out, const byte* in,
+                                    		word32 byteCount)
+{
+    word32 i;
+
+    for(i = 0; i < byteCount; i++) {
+    	if((i % 4) == 0)
+    		out[i / 4] = 0;
+    	out[i / 4] |= (in[i] & 0xFF) << (8*(i % 4));
+    }
 }
 
 
