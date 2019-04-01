@@ -125,25 +125,28 @@ STATIC WC_INLINE void ByteReverseWords(word32* out, const word32* in,
 
 }
 
-STATIC WC_INLINE void DBC_Word32ToByteArray(byte* out, const word32* in,
+WC_INLINE void DBC_Word32ToByteArray(byte* out, const word32* in,
                                     		word32 byteCount)
 {
-    word32 i;
-
-	for(i = 0; i < byteCount; i++) {
-    	out[i] = (in[i / 4] >> (8*(i % 4))) & 0xFF;
+    word32 i, j, t;
+    
+	for(i = 0, j = 0; i < byteCount; i+=4, j++) {
+		for(t = 0; t < 4; t++) {
+    		out[i+t] = (in[j] >> (8*t)) & 0xff;
+		}
+    	
 	}
 }
 
-STATIC WC_INLINE void DBC_ByteToWord32Array(word32* out, const byte* in,
+WC_INLINE void DBC_ByteToWord32Array(word32* out, const byte* in,
                                     		word32 byteCount)
 {
-    word32 i;
+    word32 i, j, t;
 
-    for(i = 0; i < byteCount; i++) {
-    	if((i % 4) == 0)
-    		out[i / 4] = 0;
-    	out[i / 4] |= (in[i] & 0xFF) << (8*(i % 4));
+    for(i = 0, j = 0; i < byteCount; i+=4, j++) {
+    	for(t = 0; t < 4; t++) {
+    		out[j] |= (in[i+t] & 0xFF) << (8*t);
+    	}
     }
 }
 
