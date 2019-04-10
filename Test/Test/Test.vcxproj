@@ -86,7 +86,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;NO_ASN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
@@ -153,21 +153,32 @@
     <ClInclude Include="..\..\wolfssl\wolfcrypt\cpuid.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\error-crypt.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\hash.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\hmac.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\logging.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\misc.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\mpi_class.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\mpi_superclass.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\random.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\rsa.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\settings.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\sha256.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\types.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\visibility.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\wc_port.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\wolfmath.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\wolfcrypt\src\aes.c" />
     <ClCompile Include="..\..\wolfcrypt\src\error.c" />
+    <ClCompile Include="..\..\wolfcrypt\src\hash.c" />
+    <ClCompile Include="..\..\wolfcrypt\src\hmac.c" />
     <ClCompile Include="..\..\wolfcrypt\src\logging.c" />
     <ClCompile Include="..\..\wolfcrypt\src\misc.c" />
+    <ClCompile Include="..\..\wolfcrypt\src\random.c" />
+    <ClCompile Include="..\..\wolfcrypt\src\rsa.c" />
     <ClCompile Include="..\..\wolfcrypt\src\sha256.c" />
+    <ClCompile Include="..\..\wolfcrypt\src\wolfmath.c" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
