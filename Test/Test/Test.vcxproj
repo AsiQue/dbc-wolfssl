@@ -86,7 +86,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
@@ -149,6 +149,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\aes.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\cpuid.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\error-crypt.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\hash.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\wolfcrypt\src\aes.c" />
     <ClCompile Include="..\..\wolfcrypt\src\error.c" />
     <ClCompile Include="..\..\wolfcrypt\src\logging.c" />
     <ClCompile Include="..\..\wolfcrypt\src\misc.c" />

@@ -125,28 +125,25 @@ STATIC WC_INLINE void ByteReverseWords(word32* out, const word32* in,
 
 }
 
-WC_INLINE void DBC_Word32ToByteArray(byte* out, const word32* in,
+STATIC WC_INLINE void DBC_Word32ToByteArray(byte* out, const word32* in,
                                     		word32 byteCount)
 {
-    word32 i, j, t;
-    
-	for(i = 0, j = 0; i < byteCount; i+=4, j++) {
-		for(t = 0; t < 4; t++) {
-    		out[i+t] = (in[j] >> (8*t)) & 0xff;
-		}
-    	
+    word32 i;
+
+	for(i = 0; i < byteCount; i++) {
+    	out[i] = (in[i / 4] >> (8*(i % 4))) & 0xFF;
 	}
 }
 
-WC_INLINE void DBC_ByteToWord32Array(word32* out, const byte* in,
+STATIC WC_INLINE void DBC_ByteToWord32Array(word32* out, const byte* in,
                                     		word32 byteCount)
 {
-    word32 i, j, t;
+    word32 i;
 
-    for(i = 0, j = 0; i < byteCount; i+=4, j++) {
-    	for(t = 0; t < 4; t++) {
-    		out[j] |= (in[i+t] & 0xFF) << (8*t);
-    	}
+    for(i = 0; i < byteCount; i++) {
+    	if((i % 4) == 0)
+    		out[i / 4] = 0;
+    	out[i / 4] |= (in[i] & 0xFF) << (8*(i % 4));
     }
 }
 
@@ -216,6 +213,36 @@ STATIC WC_INLINE void xorbuf(void* buf, const void* mask, word32 count)
 
         for (i = 0; i < count; i++) b[i] ^= m[i];
     }
+}
+
+STATIC WC_INLINE void DBC_XorByteIntoWord32Array(word32* buf, const byte* mask, word32 count)
+{
+	word32 mask32;
+	int i;
+	unsigned char rem = count & 0x03;
+	byte rem_mask[4] = {0, 0, 0, 0};
+	
+	for(i = 0; i < count; i += 4) {
+		if ((i+4) <= count) // i.e (word32) mask[i] is contained entirely in mask
+			DBC_ByteToWord32Array(&mask32, &mask[i], 4);
+		else {
+			XMEMCPY(rem_mask, mask, rem);
+			DBC_ByteToWord32Array(&mask32, rem_mask, 4);
+		}
+		buf[i >> 2] = buf[i >> 2] ^ mask32;
+	}
+}
+
+STATIC WC_INLINE void DBC_XorWord32IntoByteArray(byte* buf, const word32* mask, word32 count)
+{
+	byte byte_mask[4];
+	int i, j;
+	
+	for(i = 0; i < count / DBC_SIZEOF_WORD32; i++) {
+		DBC_Word32ToByteArray(byte_mask, mask + i, 4);
+		for(j = 0; j < 4; j++)
+			buf[4*i + j] = buf[4*i + j] ^ byte_mask[j];
+	}
 }
 #endif
 

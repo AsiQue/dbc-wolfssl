@@ -2,23 +2,32 @@
 //
 
 #include <stdio.h>
-#include "../../wolfssl/wolfcrypt/sha256.h"
+#include "../../wolfssl/wolfcrypt/aes.h"
 
 int main()
 {
 
-	#define LEN 1000
+	Aes aes;
 
-	wc_Sha256 sha_ctx;
-	unsigned char data[LEN] = { 0 };
-	unsigned char hash[32];
+	#define LEN 48
+
+	unsigned char key[32] = { 0 };
+	unsigned char iv[16] = { 0 };
+	unsigned char plain[LEN] = { 0 };
+	unsigned char cipher[LEN];
 	int i;
-	for (i = 0; i < LEN; i++)
-		data[i] = i & 0xFF;
 
-	wc_InitSha256(&sha_ctx);
-	wc_Sha256Update(&sha_ctx, data, LEN);
-	wc_Sha256Final(&sha_ctx, hash);
+	for (i = 0; i < 32; i++)
+		key[i] = i & 0xFF;
+
+	for (i = 0; i < 16; i++)
+		iv[i] = i & 0xFF;
+
+	for (i = 0; i < LEN; i++)
+		plain[i] = (i*i) & 0xFF;
+
+	wc_AesSetKey(&aes, key, 32, iv, AES_DECRYPTION);
+	wc_AesCbcDecrypt(&aes, cipher, plain, LEN);
 
     return 0;
 }

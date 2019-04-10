@@ -51,6 +51,9 @@
     <ClInclude Include="..\..\wolfssl\wolfcrypt\wc_port.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\aes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\sha256.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wolfcrypt\src\aes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

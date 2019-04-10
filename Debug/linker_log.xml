@@ -1,11 +1,19 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.1.2/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Mon Apr 01 13:52:13 2019
+<DOCUMENT gen_time='Wed Apr 10 14:32:38 2019
 '>
-<MSG id='02C119B8' mid='li3201' type='Informational' suppressed=''>
-<TEXT><![CDATA[Successfully eliminated 30884 bytes in processor 'p0'
+<MSG id='031AA0D0' mid='li3201' type='Informational' suppressed=''>
+<TEXT><![CDATA[Successfully eliminated 44100 bytes in processor 'p0'
 ]]></TEXT>
-<EXTENDED_INFO><![CDATA[Eliminated object (.sopenin.0, .sopenin.0.end) of size 140 bytes from '.\Debug\error.doj(seg_dmda)'
+<EXTENDED_INFO><![CDATA[Eliminated object (.static0, .static0.end) of size 20 bytes from '.\Debug\aes.doj(seg_dmda)'
+Eliminated object (_wc_AesGetKeySize, ._wc_AesGetKeySize.end) of size 288 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (_wc_AesFree, ._wc_AesFree.end) of size 36 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (_wc_AesInit, ._wc_AesInit.end) of size 114 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (_PreFetchTe, ._PreFetchTe.end) of size 216 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (_DBC_XorByteIntoWord32Array, ._DBC_XorByteIntoWord32Array.end) of size 468 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (_wc_AesEncrypt, ._wc_AesEncrypt.end) of size 2856 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (_wc_AesCbcEncrypt, ._wc_AesCbcEncrypt.end) of size 468 bytes from '.\Debug\aes.doj(seg_pmco)'
+Eliminated object (.sopenin.0, .sopenin.0.end) of size 140 bytes from '.\Debug\error.doj(seg_dmda)'
 Eliminated object (.sreadin.1, .sreadin.1.end) of size 140 bytes from '.\Debug\error.doj(seg_dmda)'
 Eliminated object (.swindow.2, .swindow.2.end) of size 125 bytes from '.\Debug\error.doj(seg_dmda)'
 Eliminated object (.swindow.3, .swindow.3.end) of size 155 bytes from '.\Debug\error.doj(seg_dmda)'
@@ -167,11 +175,28 @@ Eliminated object (_wc_ErrorString, ._wc_ErrorString.end) of size 96 bytes from 
 Eliminated object (_wolfSSL_Debugging_OFF, ._wolfSSL_Debugging_OFF.end) of size 24 bytes from '.\Debug\logging.doj(seg_pmco)'
 Eliminated object (_wolfSSL_Debugging_ON, ._wolfSSL_Debugging_ON.end) of size 30 bytes from '.\Debug\logging.doj(seg_pmco)'
 Eliminated object (_wolfSSL_SetLoggingCb, ._wolfSSL_SetLoggingCb.end) of size 42 bytes from '.\Debug\logging.doj(seg_pmco)'
+Eliminated object (_K, ._K.end) of size 320 bytes from '.\Debug\sha256.doj(seg_dmda)'
 Eliminated object (_wc_Sha256Copy, ._wc_Sha256Copy.end) of size 156 bytes from '.\Debug\sha256.doj(seg_pmco)'
 Eliminated object (_wc_Sha256Free, ._wc_Sha256Free.end) of size 36 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_AddLength, ._AddLength.end) of size 126 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_DBC_ByteToWord32Array, ._DBC_ByteToWord32Array.end) of size 228 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_DBC_Word32ToByteArray, ._DBC_Word32ToByteArray.end) of size 192 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_rotrFixed, ._rotrFixed.end) of size 72 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_rotlFixed, ._rotlFixed.end) of size 72 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_ByteReverseWord32, ._ByteReverseWord32.end) of size 108 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_ByteReverseWords, ._ByteReverseWords.end) of size 168 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_InitSha256, ._InitSha256.end) of size 300 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_wc_InitSha256_ex, ._wc_InitSha256_ex.end) of size 162 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_Transform_Sha256, ._Transform_Sha256.end) of size 4344 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_Sha256Update, ._Sha256Update.end) of size 1104 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_wc_Sha256Update, ._wc_Sha256Update.end) of size 168 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_Sha256Final, ._Sha256Final.end) of size 1002 bytes from '.\Debug\sha256.doj(seg_pmco)'
 Eliminated object (_wc_Sha256FinalRaw, ._wc_Sha256FinalRaw.end) of size 192 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_wc_Sha256Final, ._wc_Sha256Final.end) of size 240 bytes from '.\Debug\sha256.doj(seg_pmco)'
+Eliminated object (_wc_InitSha256, ._wc_InitSha256.end) of size 66 bytes from '.\Debug\sha256.doj(seg_pmco)'
 Eliminated object (_wc_Sha256GetHash, ._wc_Sha256GetHash.end) of size 240 bytes from '.\Debug\sha256.doj(seg_pmco)'
 Eliminated object (___lib_setup_runtime_heap, .___lib_setup_runtime_heap.end) of size 18 bytes from 'libc.dlb[set_c.doj](seg_pmco)'
+Eliminated object (___memcpyDD, .___memcpyDD.end) of size 78 bytes from 'libc.dlb[memcpy.doj](seg_pmco)'
 Eliminated object (___strncpyDD, .___strncpyDD.end) of size 144 bytes from 'libc.dlb[strncpy.doj](seg_pmco)'
 ]]></EXTENDED_INFO>
 </MSG>

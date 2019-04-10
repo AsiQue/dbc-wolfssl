@@ -7,19 +7,34 @@
 #pragma symbolic_ref
 const char __argv_string[] = "-abc -xyz";
 
-#include <wolfssl/wolfcrypt/sha256.h>
+#include <wolfssl/wolfcrypt/aes.h>
 
 int main( int argc, char *argv[] )
 {
 	/* Begin adding your custom code here */
 	
-	wc_Sha256 sha_ctx;
-	unsigned char data[1] = {0};
-	unsigned char hash[32];
+	Aes aes;
 	
-	wc_InitSha256(&sha_ctx);
-	wc_Sha256Update(&sha_ctx, data, 1);
-	wc_Sha256Final(&sha_ctx, hash);
+	#define LEN 48
+	
+	unsigned char key[32] = {0};
+	unsigned char iv[16] = {0};
+	unsigned char plain[LEN] = {0};
+	unsigned char cipher[LEN];
+	int i;
+	
+	for(i = 0; i < 32; i++)
+		key[i] = i & 0xFF;
+	
+	for(i = 0; i < 16; i++)
+		iv[i] = i & 0xFF;
+	
+	for(i = 0; i < LEN; i++)
+		plain[i] = (i*i) & 0xFF;
+	
+	wc_AesSetKey(&aes, key, 32, iv, AES_DECRYPTION);
+	wc_AesCbcDecrypt(&aes, cipher, plain, LEN);
+	
 	
 	return 0;
 }
