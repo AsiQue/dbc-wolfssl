@@ -2,7 +2,7 @@
 //
 
 #include <stdio.h>
-#include "../../wolfssl/wolfcrypt/rsa.h"
+#include <wolfssl/wolfcrypt/rsa.h>
 
 int main()
 {

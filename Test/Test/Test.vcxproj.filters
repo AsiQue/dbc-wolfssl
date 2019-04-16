@@ -77,35 +77,35 @@
     <ClCompile Include="Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\wolfcrypt\src\error.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wolfcrypt\src\logging.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wolfcrypt\src\misc.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wolfcrypt\src\sha256.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\aes.c">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wolfcrypt\src\error.c">
+      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\hash.c">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\hmac.c">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wolfcrypt\src\logging.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wolfcrypt\src\misc.c">
+      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\random.c">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\rsa.c">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wolfcrypt\src\sha256.c">
+      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\wolfcrypt\src\wolfmath.c">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
