@@ -86,7 +86,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;NO_ASN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DBC;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;NO_ASN;WC_RSA_NO_PADDING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
@@ -173,6 +173,7 @@
     <ClCompile Include="..\..\wolfcrypt\src\error.c" />
     <ClCompile Include="..\..\wolfcrypt\src\hash.c" />
     <ClCompile Include="..\..\wolfcrypt\src\hmac.c" />
+    <ClCompile Include="..\..\wolfcrypt\src\integer.c" />
     <ClCompile Include="..\..\wolfcrypt\src\logging.c" />
     <ClCompile Include="..\..\wolfcrypt\src\misc.c" />
     <ClCompile Include="..\..\wolfcrypt\src\random.c" />

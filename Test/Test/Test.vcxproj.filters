@@ -107,5 +107,8 @@
     <ClCompile Include="..\..\wolfcrypt\src\wolfmath.c">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\wolfcrypt\src\integer.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
