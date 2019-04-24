@@ -86,7 +86,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DBC;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;NO_ASN;WC_RSA_NO_PADDING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DBC;NO_MD5;NO_SHA;NO_MD4;WOLFCRYPT_ONLY;SINGLE_THREADED;NO_FILESYSTEM;NO_WOLFSSL_MEMORY;WOLFSSL_IGNORE_FILE_WARN;WC_NO_RNG;NO_ASN;WC_RSA_NO_PADDING;NO_WOLFSSL_SMALL_STACK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
@@ -154,6 +154,7 @@
     <ClInclude Include="..\..\wolfssl\wolfcrypt\error-crypt.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\hash.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\hmac.h" />
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\integer.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\logging.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\misc.h" />
     <ClInclude Include="..\..\wolfssl\wolfcrypt\mpi_class.h" />

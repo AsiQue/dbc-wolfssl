@@ -72,6 +72,9 @@
     <ClInclude Include="..\..\wolfssl\wolfcrypt\wolfmath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\wolfssl\wolfcrypt\integer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">

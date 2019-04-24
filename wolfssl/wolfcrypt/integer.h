@@ -42,7 +42,11 @@
 #include <wolfssl/wolfcrypt/random.h>
 
 #ifndef CHAR_BIT
-    #include <limits.h>
+	#ifdef DBC
+		#define CHAR_BIT	8
+	#else
+    	#include <limits.h>
+    #endif
 #endif
 
 #include <wolfssl/wolfcrypt/mpi_class.h>
@@ -107,7 +111,12 @@ extern "C" {
  * At the very least a mp_digit must be able to hold 7 bits
  * [any size beyond that is ok provided it doesn't overflow the data type]
  */
-#ifdef MP_8BIT
+#ifdef DBC
+   typedef unsigned int      	  mp_digit;
+   typedef unsigned long long     mp_word;
+   
+   #define DIGIT_BIT 28
+#elif defined(MP_8BIT)
    /* 8-bit */
    typedef unsigned char      mp_digit;
    typedef unsigned short     mp_word;

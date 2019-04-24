@@ -14,7 +14,7 @@
 			<changed-property-page-flags>0</changed-property-page-flags>
 			<tools>
 				<tool type="Compiler">
-					<option><![CDATA[|-Version>5.0|-O>0|-O1>0|-Ov>100|-ipa>0|-g>1|-no-annotate>0|-save-temps -path-output>0|-ED>0|-no-auto-attrs>0|-no-builtin>0|-no-extra-keywords>0|-enum-is-int>0|-no-fp-associative>0|-structs-do-not-overlap>1|-implicit-pointers>0|-eh >0|-rtti>1|-check-init-order>0|-ignore-std>0|-const-read-write>0|-const-strings>0|-no-multiline>1|-misra>0|-misra-strict>0|-misra-no-cross-module>0|-misra-no-runtime>0|-misra-testing>0|-misra-suppress-advisory>0|-D>NO_MD5 NO_SHA NO_MD5 NO_MD4 WOLFCRYPT_ONLY SINGLE_THREADED NO_FILESYSTEM NO_WOLFSSL_MEMORY WOLFSSL_HAVE_MIN WOLFSSL_HAVE_MAX WC_NO_RNG|-no-std-inc>0|-double-size-32>1|-double-size-any>0|-no-simd>0|-section switch=seg_pmda>0|-no-shift-to-add>0|-pguide>0|NOSWITCH>0|-flags-compiler --diag_warning,implicit_func_decl>0|-warn-protos>1|-flags-compiler --diag_warning,call_not_inlined>0|-Wremarks>0|-w>0]]></option>
+					<option><![CDATA[|-Version>5.0|-O>0|-O1>0|-Ov>100|-ipa>0|-g>1|-no-annotate>0|-save-temps -path-output>0|-ED>0|-no-auto-attrs>0|-no-builtin>0|-no-extra-keywords>0|-enum-is-int>0|-no-fp-associative>0|-structs-do-not-overlap>1|-implicit-pointers>0|-eh >0|-rtti>1|-check-init-order>0|-ignore-std>0|-const-read-write>0|-const-strings>0|-no-multiline>1|-misra>0|-misra-strict>0|-misra-no-cross-module>0|-misra-no-runtime>0|-misra-testing>0|-misra-suppress-advisory>0|-D>NO_MD5 NO_SHA NO_MD5 NO_MD4 WOLFCRYPT_ONLY SINGLE_THREADED NO_FILESYSTEM NO_WOLFSSL_MEMORY WOLFSSL_HAVE_MIN WOLFSSL_HAVE_MAX WC_NO_RNG NO_ASN WC_RSA_NO_PADDING NO_WOLFSSL_SMALL_STACK DBC|-no-std-inc>0|-double-size-32>1|-double-size-any>0|-no-simd>0|-section switch=seg_pmda>0|-no-shift-to-add>0|-pguide>0|NOSWITCH>0|-flags-compiler --diag_warning,implicit_func_decl>0|-warn-protos>1|-flags-compiler --diag_warning,call_not_inlined>0|-Wremarks>0|-w>0]]></option>
 				</tool>
 				<tool type="Assembler">
 					<option><![CDATA[|-Version>4.5|-v>0|-g>1|-l>0|-save-temps>0|-sp>0]]></option>
@@ -77,9 +77,21 @@
 				</file>
 				<file name=".\wolfssl\wolfcrypt\hash.h">
 				</file>
+				<file name=".\wolfssl\wolfcrypt\hmac.h">
+				</file>
+				<file name=".\wolfssl\wolfcrypt\integer.h">
+				</file>
 				<file name=".\wolfssl\wolfcrypt\logging.h">
 				</file>
 				<file name=".\wolfssl\wolfcrypt\misc.h">
+				</file>
+				<file name=".\wolfssl\wolfcrypt\mpi_class.h">
+				</file>
+				<file name=".\wolfssl\wolfcrypt\mpi_superclass.h">
+				</file>
+				<file name=".\wolfssl\wolfcrypt\random.h">
+				</file>
+				<file name=".\wolfssl\wolfcrypt\rsa.h">
 				</file>
 				<file name=".\wolfssl\wolfcrypt\settings.h">
 				</file>
@@ -90,6 +102,8 @@
 				<file name=".\wolfssl\wolfcrypt\visibility.h">
 				</file>
 				<file name=".\wolfssl\wolfcrypt\wc_port.h">
+				</file>
+				<file name=".\wolfssl\wolfcrypt\wolfmath.h">
 				</file>
 			</files>
 		</folder>
@@ -145,6 +159,54 @@
 						</file-configuration>
 					</file-configurations>
 				</file>
+				<file name=".\wolfcrypt\src\hash.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\wolfcrypt\src\hmac.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\wolfcrypt\src\integer.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
 				<file name=".\wolfcrypt\src\logging.c">
 					<file-configurations>
 						<file-configuration name="Debug">
@@ -177,7 +239,55 @@
 						</file-configuration>
 					</file-configurations>
 				</file>
+				<file name=".\wolfcrypt\src\random.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\wolfcrypt\src\rsa.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
 				<file name=".\wolfcrypt\src\sha256.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\wolfcrypt\src\wolfmath.c">
 					<file-configurations>
 						<file-configuration name="Debug">
 							<excluded-flag value="no"/>
