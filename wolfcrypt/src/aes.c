@@ -3081,7 +3081,7 @@ int wc_AesSetIV(Aes* aes, const byte* iv)
             DBC_Word32ToByteArray(tmp, aes->tmp, AES_BLOCK_SIZE);
             wc_AesDecrypt(aes, tmp, out);
             DBC_XorWord32IntoByteArray(out, aes->reg, AES_BLOCK_SIZE);
-            XMEMCPY(aes->reg, aes->tmp, AES_BLOCK_SIZE);
+            XMEMCPY(aes->reg, aes->tmp, AES_BLOCK_SIZE / DBC_SIZEOF_WORD32);
 
             out += AES_BLOCK_SIZE;
             in  += AES_BLOCK_SIZE;
