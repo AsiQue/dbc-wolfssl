@@ -48,6 +48,21 @@
 #include <wolfssl/wolfcrypt/random.h>
 #include <wolfssl/wolfcrypt/cpuid.h>
 
+#ifdef DBC
+#define CUSTOM_RAND_GENERATE_SEED rand_gen_seed
+#include <time.h>
+
+int rand_gen_seed(byte* output, word32 sz)
+{
+    int i;
+    for (i = 0; i < sz; i++ ) {
+        output[i] = (clock() + (i*i) - (i << 5) + 1) & 0xFF;
+    }
+
+    return 0;
+}
+#endif /* DBC */
+
 
 /* If building for old FIPS. */
 #if defined(HAVE_FIPS) && \
